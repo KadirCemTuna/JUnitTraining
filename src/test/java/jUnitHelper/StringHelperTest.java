@@ -1,14 +1,32 @@
 package jUnitHelper;
 
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class StringHelperTest {
 
-  @org.junit.jupiter.api.Test
+  StringHelper stringHelper = new StringHelper();
+
+  @Test
   void truncateAInFirst2Positions() {
+    assertEquals("CD", stringHelper.truncateAInFirst2Positions("AACD"));
   }
 
-  @org.junit.jupiter.api.Test
-  void areFirstAndLastTwoCharactersTheSame() {
+  @Test
+  public void truncateAInFirstPosition() {
+    assertEquals("CD", stringHelper.truncateAInFirst2Positions("ACD"));
   }
+
+
+  @Test
+  public void areFirstAndLastTwoCharactersTheSame() {
+    assertTrue(stringHelper.areFirstAndLastTwoCharactersTheSame("abab"));
+  }
+
+  @Test
+  public void areFirstAndLastTwoCharactersTheSameNegative(){
+    assertFalse(stringHelper.areFirstAndLastTwoCharactersTheSame("abascasd"));
+  }
+
 }
